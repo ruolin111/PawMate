@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Heart, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
 import type { Dog } from "@/data/dogs";
 import { DogImage } from "@/components/image-placeholder";
-import { InteractiveAction } from "@/components/interactive-action";
+import { SaveToggle } from "@/components/save-toggle";
 import { buttonStyles } from "@/components/ui/button";
 import { Tag } from "@/components/ui/tag";
 
@@ -37,12 +37,7 @@ export function DogProfile({ dog }: { dog: Dog }) {
             <h1 className="mt-2 text-5xl font-bold tracking-[-0.05em] text-ink sm:text-6xl">{dog.name}</h1>
             <p className="mt-2 text-lg capitalize text-muted">{dog.age} · {dog.breed}</p>
           </div>
-          <InteractiveAction
-            label="Save"
-            doneLabel="Saved"
-            icon="heart"
-            variant="secondary"
-          />
+          <SaveToggle kind="dog" id={dog.id} label="Save" savedLabel="Saved" />
         </div>
 
         <Link
@@ -75,7 +70,7 @@ export function DogProfile({ dog }: { dog: Dog }) {
           >
             Contact shelter
           </a>
-          <InteractiveAction label="Save dog" doneLabel="Saved to your list" icon="heart" variant="secondary" />
+          <SaveToggle kind="dog" id={dog.id} label="Save dog" savedLabel="Saved to your list" />
         </div>
         <p className="mt-6 flex items-center gap-2 text-sm font-medium text-muted">
           <MapPin className="h-4 w-4 text-clay" /> {dog.location}

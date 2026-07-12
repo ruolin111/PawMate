@@ -2,21 +2,26 @@ import Link from "next/link";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import type { CommunityPost } from "@/data/community";
 import { CommunityImage } from "@/components/image-placeholder";
+import { SaveToggle } from "@/components/save-toggle";
 import { Tag } from "@/components/ui/tag";
 
 export function CommunityCard({ post }: { post: CommunityPost }) {
   return (
-    <Link
-      href={`/community/${post.id}`}
+    <article
       className="group overflow-hidden rounded-[1.6rem] border border-ink/[0.07] bg-paper shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-soft"
     >
-      <CommunityImage
-        type={post.type}
-        palette={post.palette}
-        image={post.image}
-        className="aspect-[16/10] w-full transition duration-500 group-hover:scale-[1.025]"
-      />
-      <div className="p-5">
+      <div className="relative">
+        <Link href={`/community/${post.id}`} className="block overflow-hidden">
+          <CommunityImage
+            type={post.type}
+            palette={post.palette}
+            image={post.image}
+            className="aspect-[16/10] w-full transition duration-500 group-hover:scale-[1.025]"
+          />
+        </Link>
+        <SaveToggle kind="community" id={post.id} iconOnly className="absolute right-4 top-4" />
+      </div>
+      <Link href={`/community/${post.id}`} className="block p-5">
         <div className="flex items-center justify-between gap-3">
           <Tag>{post.label}</Tag>
           <ArrowUpRight className="h-4 w-4 text-muted transition group-hover:rotate-12 group-hover:text-ink" />
@@ -27,7 +32,7 @@ export function CommunityCard({ post }: { post: CommunityPost }) {
           <MapPin className="h-3.5 w-3.5" />
           {post.distance}
         </p>
-      </div>
-    </Link>
+      </Link>
+    </article>
   );
 }

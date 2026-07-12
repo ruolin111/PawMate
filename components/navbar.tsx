@@ -12,6 +12,7 @@ const links = [
   { href: "/pawpal", label: "PawPal" },
   { href: "/pawmatch", label: "PawMatch" },
   { href: "/community", label: "Community" },
+  { href: "/saved", label: "Saved" },
 ];
 
 export function Navbar({

@@ -13,8 +13,8 @@ import { notFound } from "next/navigation";
 import { Navbar } from "@/components/navbar";
 import { CommunityImage } from "@/components/image-placeholder";
 import { InteractiveAction } from "@/components/interactive-action";
+import { SaveToggle } from "@/components/save-toggle";
 import { ShareButton } from "@/components/share-button";
-import { Button } from "@/components/ui/button";
 import { Tag } from "@/components/ui/tag";
 import { communityPosts, getCommunityPost } from "@/data/community";
 
@@ -26,9 +26,6 @@ export default async function CommunityDetailPage({ params }: { params: Promise<
   const { postId } = await params;
   const post = getCommunityPost(postId);
   if (!post) notFound();
-
-  const secondaryIcon = post.type === "gear" ? "heart" : "check";
-  const secondaryLabel = post.type === "gear" ? "Save listing" : "Message";
 
   return (
     <main className="min-h-screen bg-cream">
@@ -75,9 +72,13 @@ export default async function CommunityDetailPage({ params }: { params: Promise<
               <InteractiveAction label={post.action} doneLabel={post.type === "gear" || post.type === "service" ? "Request sent" : "You’re going"} />
               {post.type === "meetup" ? (
                 <ShareButton title={post.title} />
-              ) : (
-                <InteractiveAction label={secondaryLabel} doneLabel={post.type === "gear" ? "Saved" : "Message opened"} icon={secondaryIcon} variant="secondary" />
-              )}
+              ) : null}
+              <SaveToggle
+                kind="community"
+                id={post.id}
+                label={post.type === "gear" ? "Save listing" : "Save post"}
+                savedLabel={post.type === "gear" ? "Listing saved" : "Post saved"}
+              />
             </div>
 
             <div className="mt-7 flex items-center gap-5 text-xs font-semibold text-muted">
