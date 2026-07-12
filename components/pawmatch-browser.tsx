@@ -33,7 +33,7 @@ export function PawMatchBrowser() {
   }, [query, filter]);
 
   return (
-    <>
+    <div id="pawmatch-results">
       <div className="mt-9 flex flex-col gap-3 sm:flex-row">
         <SearchBar
           placeholder="Search breed, age, location..."
@@ -94,6 +94,6 @@ export function PawMatchBrowser() {
           <p className="mt-2 text-sm text-muted">Try a broader breed, age, or shelter search.</p>
         </div>
       )}
-    </>
+    </div>
   );
 }

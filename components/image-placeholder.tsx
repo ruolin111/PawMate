@@ -41,9 +41,11 @@ export function DogImage({
           className="object-cover"
           placeholder="blur"
         />
-        <span className="absolute bottom-4 left-4 rounded-full bg-white/85 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ink/70 shadow-sm backdrop-blur-sm">
-          Meet {name}
-        </span>
+        {!compact && (
+          <span className="absolute bottom-4 left-4 rounded-full bg-white/85 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ink/70 shadow-sm backdrop-blur-sm">
+            Meet {name}
+          </span>
+        )}
       </div>
     );
   }

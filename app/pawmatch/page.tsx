@@ -1,5 +1,6 @@
 import { HeartHandshake } from "lucide-react";
 import { Navbar } from "@/components/navbar";
+import { PawMatchAiDiscovery } from "@/components/pawmatch-ai-discovery";
 import { PawMatchBrowser } from "@/components/pawmatch-browser";
 
 export const metadata = { title: "PawMatch" };
@@ -24,6 +25,7 @@ export default function PawMatchPage() {
             28 local adoptions this month
           </div>
         </div>
+        <PawMatchAiDiscovery />
         <PawMatchBrowser />
       </section>
     </main>
