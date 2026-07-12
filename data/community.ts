@@ -1,3 +1,11 @@
+import type { StaticImageData } from "next/image";
+import classImage from "./images/community/class.png";
+import crateImage from "./images/community/crate.png";
+import hikeImage from "./images/community/hike.png";
+import leashImage from "./images/community/leash.png";
+import parkImage from "./images/community/park.png";
+import walkerImage from "./images/community/walker.png";
+
 export type CommunityType = "meetup" | "playdate" | "gear" | "service";
 
 export type CommunityPost = {
@@ -14,6 +22,7 @@ export type CommunityPost = {
   host: string;
   action: string;
   palette: string;
+  image?: StaticImageData;
 };
 
 export const communityPosts: CommunityPost[] = [
@@ -32,6 +41,7 @@ export const communityPosts: CommunityPost[] = [
     host: "Land Park Dog People",
     action: "RSVP",
     palette: "from-[#C6DDD6] to-[#8EBBAE]",
+    image: hikeImage,
   },
   {
     id: "dog-crate",
@@ -48,6 +58,7 @@ export const communityPosts: CommunityPost[] = [
     host: "Priya",
     action: "Message seller",
     palette: "from-[#F3D3BF] to-[#DF9F83]",
+    image: crateImage,
   },
   {
     id: "small-dog-playdate",
@@ -64,6 +75,7 @@ export const communityPosts: CommunityPost[] = [
     host: "Jamie and Coco",
     action: "Join playdate",
     palette: "from-[#D9D2E9] to-[#AA9BCB]",
+    image: parkImage,
   },
   {
     id: "dog-walker",
@@ -80,6 +92,7 @@ export const communityPosts: CommunityPost[] = [
     host: "Marcus T",
     action: "Book a walk",
     palette: "from-[#F1E0A8] to-[#D9BC5C]",
+    image: walkerImage,
   },
   {
     id: "puppy-training",
@@ -95,6 +108,7 @@ export const communityPosts: CommunityPost[] = [
     host: "Good Dog Club",
     action: "RSVP",
     palette: "from-[#CBDFE6] to-[#8CB8C7]",
+    image: classImage,
   },
   {
     id: "leash-harness",
@@ -110,6 +124,7 @@ export const communityPosts: CommunityPost[] = [
     host: "Morgan",
     action: "Message seller",
     palette: "from-[#D8E4CC] to-[#9CBC81]",
+    image: leashImage,
   },
 ];
 

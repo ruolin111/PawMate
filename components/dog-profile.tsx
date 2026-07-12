@@ -10,13 +10,19 @@ export function DogProfile({ dog }: { dog: Dog }) {
   return (
     <div className="grid gap-9 lg:grid-cols-[1.06fr_.94fr] lg:gap-14">
       <div>
-        <DogImage name={dog.name} palette={dog.palette} className="aspect-[5/4] w-full rounded-[2rem] shadow-card sm:rounded-[2.5rem]" />
+        <DogImage
+          name={dog.name}
+          palette={dog.palette}
+          image={dog.image}
+          className="aspect-[5/4] w-full rounded-[2rem] shadow-card sm:rounded-[2.5rem]"
+        />
         <div className="mt-3 grid grid-cols-4 gap-3">
           {[0, 1, 2, 3].map((item) => (
             <DogImage
               key={item}
               name={dog.name}
               palette={dog.palette}
+              image={dog.image}
               compact
               className={`aspect-square w-full rounded-2xl ${item > 0 ? "opacity-75" : "ring-2 ring-ink ring-offset-2 ring-offset-cream"}`}
             />

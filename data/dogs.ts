@@ -1,3 +1,13 @@
+import type { StaticImageData } from "next/image";
+import bellaImage from "./images/dogs/bella.png";
+import cocoImage from "./images/dogs/coco.png";
+import daisyImage from "./images/dogs/daisy.png";
+import dukeImage from "./images/dogs/duke.png";
+import lunaImage from "./images/dogs/luna.png";
+import maxImage from "./images/dogs/max.png";
+import miloImage from "./images/dogs/milo.png";
+import rockyImage from "./images/dogs/rocky.png";
+
 export type Dog = {
   id: string;
   name: string;
@@ -10,6 +20,7 @@ export type Dog = {
   description: string;
   tags: string[];
   palette: string;
+  image?: StaticImageData;
   adopted?: boolean;
 };
 
@@ -26,6 +37,7 @@ export const dogs: Dog[] = [
     description:
       "Max is a friendly lab mix who loves fetch and long walks. He’s been at the shelter for 3 months and is looking for an active family. Great with other dogs.",
     tags: ["Good with kids", "House trained", "High energy"],
+    image: maxImage,
     palette: "from-[#D8E9E3] via-[#C6DDD6] to-[#A8C9BE]",
   },
   {
@@ -39,6 +51,7 @@ export const dogs: Dog[] = [
     location: "7 miles away · Sacramento, CA",
     description: "Coco is bright, curious, and always ready to make a new friend.",
     tags: ["Small dog", "Playful", "Crate trained"],
+    image: cocoImage,
     palette: "from-[#F5DCCF] via-[#EBC6B5] to-[#DFA894]",
   },
   {
@@ -52,6 +65,7 @@ export const dogs: Dog[] = [
     location: "6.1 miles away · Sacramento, CA",
     description: "Bella is calm, loyal, and happiest with her people close by.",
     tags: ["Calm", "Leash trained", "Loyal"],
+    image: bellaImage,
     palette: "from-[#E6DFC8] via-[#D9CFAC] to-[#CBBE90]",
   },
   {
@@ -65,6 +79,7 @@ export const dogs: Dog[] = [
     location: "3.8 miles away · Sacramento, CA",
     description: "Rocky is an affectionate puppy with a brave little nose for adventure.",
     tags: ["Puppy", "Curious", "Affectionate"],
+    image: rockyImage,
     palette: "from-[#DCE6F3] via-[#C9D8EA] to-[#ACC5DF]",
   },
   {
@@ -78,6 +93,7 @@ export const dogs: Dog[] = [
     location: "8.4 miles away · Sacramento, CA",
     description: "Luna has a soft heart, clever eyes, and plenty of trail energy.",
     tags: ["Smart", "Active", "Dog friendly"],
+    image: lunaImage,
     palette: "from-[#DFD9EC] via-[#CCC2E0] to-[#B4A6D2]",
   },
   {
@@ -91,6 +107,7 @@ export const dogs: Dog[] = [
     location: "4.9 miles away · Sacramento, CA",
     description: "Duke is a gentle goofball who takes his couch time seriously.",
     tags: ["Gentle", "Mellow", "House trained"],
+    image: dukeImage,
     palette: "from-[#F4D9C6] via-[#E9C4AA] to-[#DDAE8B]",
   },
   {
@@ -104,6 +121,7 @@ export const dogs: Dog[] = [
     location: "5.6 miles away · Sacramento, CA",
     description: "Daisy is gentle, bouncy, and very proud of her excellent manners.",
     tags: ["Gentle", "Low shed", "Good manners"],
+    image: daisyImage,
     palette: "from-[#F1E2D3] via-[#E7D1BD] to-[#D8BDA4]",
   },
   {
@@ -117,6 +135,7 @@ export const dogs: Dog[] = [
     location: "6.7 miles away · Sacramento, CA",
     description: "Milo brings short legs, big enthusiasm, and world-class tail wags.",
     tags: ["Friendly", "Food motivated", "Playful"],
+    image: miloImage,
     palette: "from-[#F3E2B7] via-[#E9CF90] to-[#DAB96C]",
   },
   {

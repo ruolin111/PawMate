@@ -14,6 +14,7 @@ export function DogCard({ dog }: { dog: Dog }) {
         <DogImage
           name={dog.name}
           palette={dog.palette}
+          image={dog.image}
           compact
           className="aspect-[4/3] w-full transition duration-500 group-hover:scale-[1.025]"
         />

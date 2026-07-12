@@ -39,7 +39,12 @@ export default async function CommunityDetailPage({ params }: { params: Promise<
         </Link>
 
         <div className="grid overflow-hidden rounded-[2rem] border border-ink/[0.07] bg-paper shadow-soft lg:grid-cols-[1.02fr_.98fr] lg:rounded-[2.5rem]">
-          <CommunityImage type={post.type} palette={post.palette} className="min-h-[320px] w-full lg:min-h-[660px]" />
+          <CommunityImage
+            type={post.type}
+            palette={post.palette}
+            image={post.image}
+            className="min-h-[320px] w-full lg:min-h-[660px]"
+          />
           <article className="flex flex-col justify-center p-6 sm:p-10 lg:p-12">
             <Tag className="mb-5 w-fit bg-ink text-white">{post.label}</Tag>
             <h1 className="text-balance text-4xl font-bold tracking-[-0.05em] text-ink sm:text-5xl">{post.title}</h1>

@@ -13,6 +13,7 @@ export function CommunityCard({ post }: { post: CommunityPost }) {
       <CommunityImage
         type={post.type}
         palette={post.palette}
+        image={post.image}
         className="aspect-[16/10] w-full transition duration-500 group-hover:scale-[1.025]"
       />
       <div className="p-5">

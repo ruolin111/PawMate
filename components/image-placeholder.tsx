@@ -1,3 +1,4 @@
+import Image, { type StaticImageData } from "next/image";
 import {
   Bone,
   Dog,
@@ -19,14 +20,34 @@ const communityIcons = {
 export function DogImage({
   name,
   palette,
+  image,
   className,
   compact = false,
 }: {
   name: string;
   palette: string;
+  image?: StaticImageData;
   className?: string;
   compact?: boolean;
 }) {
+  if (image) {
+    return (
+      <div className={cn("relative isolate overflow-hidden bg-mist", className)}>
+        <Image
+          src={image}
+          alt={`${name}, available on PawMate`}
+          fill
+          sizes={compact ? "(max-width: 768px) 100vw, 33vw" : "(max-width: 1024px) 100vw, 50vw"}
+          className="object-cover"
+          placeholder="blur"
+        />
+        <span className="absolute bottom-4 left-4 rounded-full bg-white/85 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ink/70 shadow-sm backdrop-blur-sm">
+          Meet {name}
+        </span>
+      </div>
+    );
+  }
+
   return (
     <div
       className={cn(
@@ -53,13 +74,31 @@ export function DogImage({
 export function CommunityImage({
   type,
   palette,
+  image,
   className,
 }: {
   type: CommunityType;
   palette: string;
+  image?: StaticImageData;
   className?: string;
 }) {
   const Icon = communityIcons[type];
+
+  if (image) {
+    return (
+      <div className={cn("relative isolate overflow-hidden bg-mist", className)}>
+        <Image
+          src={image}
+          alt={`${type} community post`}
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover"
+          placeholder="blur"
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       className={cn(
